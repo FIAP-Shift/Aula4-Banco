@@ -30,7 +30,17 @@ class _ListPersonState extends State<ListPerson> {
   }
 
   readAll() async {
+    final List<Map<String, dynamic>> maps = await _database.query('person');
 
+    personsList = List.generate(maps.length, (i) {
+      return Person(
+        id: maps[i]['id'],
+        firstName: maps[i]['firstName'],
+        lastName: maps[i]['lastName'],
+      );
+    });
+
+    setState(() {});
   }
 
   @override
