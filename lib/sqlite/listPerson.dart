@@ -103,7 +103,15 @@ class _ListPersonState extends State<ListPerson> {
   }
 
   deletePerson(int index) {
-
+    _database.delete(
+      'person',//table
+      where: "id = ?", //where "id = ?" - sql injection - hacker/crackers usam para zoar bancos
+      whereArgs: [personsList[index].id],//argumentos do where - where args
+    ).then((value) {
+      setState(() {
+        personsList.removeAt(index);
+      });
+    });
   }
 
 }
