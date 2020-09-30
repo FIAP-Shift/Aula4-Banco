@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shift_bd/sqlite/model/person.dart';
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'addPerson.dart';
@@ -26,7 +27,22 @@ class _ListPersonState extends State<ListPerson> {
   }
 
   getDatabase() async {
+    openDatabase(
+        join(await getDatabasesPath(), 'person_database.db'),
+        onCreate: (db, version)
+        {
+          return db.execute(
+            "CREATE TABLE person(id INTEGER PRIMARY KEY, firstName TEXT, lastName TEXT, address TEXT)",
+          );
+        },
+        version: 1 //versão do banco de dados, não confundir com versão do app
+    ).then((db) {
+      setState(() {
+        _database = db;
+      });
 
+      readAll();
+    });
   }
 
   readAll() async {
