@@ -35,7 +35,7 @@ dependencies:
   cloud_firestore: ^0.13.6
 
 
-dev_dependencies:
+dev_dependencies: #pacotes em tempo de desenvolvimento
   flutter_test:
     sdk: flutter
   floor_generator: ^0.14.0

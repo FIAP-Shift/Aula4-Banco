@@ -90,7 +90,16 @@ class _ListPersonState extends State<ListPerson> {
   }
 
   insertPerson(Person person) {
-
+    _database.insert(
+      'person',
+      person.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    ).then((value) {
+      person.id = value;
+      setState(() {
+        personsList.add(person);
+      });
+    });
   }
 
   deletePerson(int index) {
