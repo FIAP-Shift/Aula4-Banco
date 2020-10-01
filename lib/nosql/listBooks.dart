@@ -48,7 +48,9 @@ class _ListBooksState extends State<ListBooks> {
                       builder: (context) => AddBook(),
                     ));
                 future.then((book){
-
+                  if (book != null){
+                    insertBook(book);
+                  }
                 });
               },
             ),
@@ -82,6 +84,17 @@ class _ListBooksState extends State<ListBooks> {
         ),
       ),
     );
+  }
+
+  insertBook(Book book){
+    bookDao.insertBook(book).then((value) {
+        if (value > 0) {
+          setState(() {
+            book.id = value;
+            listBooks.add(book);
+          });
+        }
+      });
   }
 
   deleteBook(Book book) {
