@@ -98,6 +98,12 @@ class _ListBooksState extends State<ListBooks> {
   }
 
   deleteBook(Book book) {
-
+    bookDao.deleteBook(book).then((value){
+      if (value == 1){
+        setState(() {
+          listBooks.remove(book);
+        });
+      }
+    });
   }
 }
