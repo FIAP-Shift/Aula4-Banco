@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shift_bd/nosql/addBook.dart';
+import 'package:flutter_shift_bd/nosql/dao/bookDao.dart';
+import 'package:flutter_shift_bd/nosql/database/databaseManager.dart';
 import 'package:flutter_shift_bd/nosql/model/book.dart';
 
 class ListBooks extends StatefulWidget {
@@ -10,6 +12,7 @@ class ListBooks extends StatefulWidget {
 class _ListBooksState extends State<ListBooks> {
 
   List<Book> listBooks = List();
+  BookDao bookDao;
 
   //ciclo de vida do State. Ele vai ser chamado no início,
   //e apenas uma vez
@@ -20,7 +23,14 @@ class _ListBooksState extends State<ListBooks> {
   }
 
   openDatabase() async{
+    final database = await
+    $FloorDatabaseManager
+        .databaseBuilder('app_database.db')
+        .build();
+    bookDao = database.bookDao;
+    listBooks = await bookDao.findAll();
 
+    setState(() {});
   }
 
   @override
