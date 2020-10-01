@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "231370583906",
+    "firebase_url": "https://shiftflutter-950dc.firebaseio.com",
+    "project_id": "shiftflutter-950dc",
+    "storage_bucket": "shiftflutter-950dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231370583906:android:05a78447f4b2239113863b",
+        "android_client_info": {
+          "package_name": "flutter.varal.flutter_shift_bd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231370583906-apnhonurf2g00dfa5s8lglm0sk2a82s8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0LFaN0s4Gp_7MI70_d24YVTMRSMYvh8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231370583906-apnhonurf2g00dfa5s8lglm0sk2a82s8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -20,7 +20,9 @@ class ListCars extends StatelessWidget {
                     builder: (context) => AddCar(),
                   ));
               future.then((car) {
-
+                if (car != null){
+                  insertCar(car);
+                }
               });
             },
           )
@@ -31,7 +33,7 @@ class ListCars extends StatelessWidget {
   }
 
   insertCar(Car car){
-
+    Firestore.instance.collection('car').add(car.toJson());
   }
 
   Widget _buildBody(BuildContext context) {
