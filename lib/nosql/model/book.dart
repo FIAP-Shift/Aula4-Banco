@@ -1,6 +1,9 @@
 import 'package:floor/floor.dart';
 
+//a entidade
+@entity
 class Book {
+  @PrimaryKey(autoGenerate: true)
   int id;
 
   final String name;
